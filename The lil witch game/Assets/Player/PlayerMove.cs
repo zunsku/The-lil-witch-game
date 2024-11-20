@@ -5,23 +5,36 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-public Rigidbody rb;
-    public float speed;
-    public float rotationSpeedHorizontal;
-    public float rotationSpeedVertical;
-    private float vertical;
-    private float horizontal;
-    private float horizontalLook;
-    private float verticalLook;
-    public CinemachineVirtualCamera VirtualCamera;
-    public GameObject Player;
-    public KeyCode Restart;
+    [Header("References")]
+    [SerializeField] public Rigidbody rb;
+    [SerializeField] public CinemachineVirtualCamera VirtualCamera;
+    [SerializeField] public GameObject Player;
+
+    [Header("Movement settings")]
+    [SerializeField] public float speed;
+    [SerializeField] public float rotationSpeedHorizontal;
+    [SerializeField] private float horizontal;
+    [SerializeField] private float vertical;
+
+    [Header("Camera settings")]
+    [SerializeField] public float rotationSpeedVertical;
+    [SerializeField] private float horizontalLook;
+    [SerializeField] private float verticalLook;
+    
+    [Header("Jump settings")]
+    [SerializeField] public Vector3 jump;
+    [SerializeField] public float jumpForce;
+
+    [Header("Dash settings")]
+    public float dashForce;
+    //public KeyCode Restart;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         //cam = Camera.main;
         VirtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = 1f;
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
     }
 
     private void FixedUpdate()
@@ -34,9 +47,14 @@ public Rigidbody rb;
 
     void Update()
     {
-        if (Input.GetKeyDown(Restart))
+        /*if (Input.GetKeyDown(Restart))
         {
             Player.transform.position = new Vector3(0, 1, 0);
+        }*/
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         }
         
         horizontalLook = Input.GetAxis("Mouse X");
