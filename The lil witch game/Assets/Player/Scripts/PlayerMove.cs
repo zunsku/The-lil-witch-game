@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
+
 public class PlayerMove : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] public Rigidbody rb;
     [SerializeField] public CinemachineVirtualCamera VirtualCamera;
     [SerializeField] public GameObject Player;
+
+    [Header("Is Grounded?")]
+    [SerializeField] float groundDistance = 0.08f;
+    [SerializeField] LayerMask groundLayers;
 
     [Header("Movement settings")]
     [SerializeField] public float speed;
@@ -22,11 +27,20 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float verticalLook;
     
     [Header("Jump settings")]
-    [SerializeField] public Vector3 jump;
+    [SerializeField] public float jumpDuration = 0.5f;
+    [SerializeField] public float jumpCooldown = 0f;
+    [SerializeField] public float gravityMultiplier = 3f;
     [SerializeField] public float jumpForce;
 
     [Header("Dash settings")]
     public float dashForce;
+
+    const float ZeroF = 0f;
+    float jumpVelocity;
+    float jumpTimer = 0;
+    float jumpCooldownTimer;
+    public bool IsGrounded;
+    
     //public KeyCode Restart;
     void Start()
     {
@@ -34,14 +48,19 @@ public class PlayerMove : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         //cam = Camera.main;
         VirtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = 1f;
-        jump = new Vector3(0.0f, 2.0f, 0.0f);
     }
 
     private void FixedUpdate()
     {
-        
-        vertical = Input.GetAxis("Vertical");
-        horizontal = Input.GetAxis("Horizontal");
+        IsGrounded = Physics.SphereCast(transform.position, groundDistance, Vector3.down, out _, groundDistance, groundLayers);
+        if (IsGrounded) {
+            
+            if(Input.GetKeyDown(KeyCode.Space)){
+                //rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            }
+            vertical = Input.GetAxis("Vertical");
+            horizontal = Input.GetAxis("Horizontal");
+        }
         rb.velocity = (transform.right * horizontal + transform.forward * vertical) * speed * Time.deltaTime;
     }
 
@@ -52,10 +71,8 @@ public class PlayerMove : MonoBehaviour
             Player.transform.position = new Vector3(0, 1, 0);
         }*/
 
-        if(Input.GetKeyDown(KeyCode.Space)){
 
-            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-        }
+
         
         horizontalLook = Input.GetAxis("Mouse X");
         verticalLook += Input.GetAxis("Mouse Y") * rotationSpeedVertical;

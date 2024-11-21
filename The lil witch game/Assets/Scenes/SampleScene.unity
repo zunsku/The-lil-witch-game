@@ -911,7 +911,7 @@ GameObject:
   - component: {fileID: 1611636424}
   - component: {fileID: 1611636423}
   - component: {fileID: 1611636422}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1114,6 +1114,14 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8008908145726017980, guid: 136dadb466006024a97fb3580e913734, type: 3}
+      propertyPath: groundDistance
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008908145726017980, guid: 136dadb466006024a97fb3580e913734, type: 3}
+      propertyPath: groundLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8678662187475289412, guid: 136dadb466006024a97fb3580e913734, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.8447919
@@ -1132,11 +1140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8678662187475289412, guid: 136dadb466006024a97fb3580e913734, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016951923
+      value: -0.000000016951923
       objectReference: {fileID: 0}
     - target: {fileID: 8678662187475289412, guid: 136dadb466006024a97fb3580e913734, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000029481915
+      value: 0.0000000029481915
       objectReference: {fileID: 0}
     - target: {fileID: 9011650666062912537, guid: 136dadb466006024a97fb3580e913734, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1156,11 +1164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9011650666062912537, guid: 136dadb466006024a97fb3580e913734, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016951923
+      value: -0.000000016951923
       objectReference: {fileID: 0}
     - target: {fileID: 9011650666062912537, guid: 136dadb466006024a97fb3580e913734, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000029481915
+      value: 0.0000000029481915
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
