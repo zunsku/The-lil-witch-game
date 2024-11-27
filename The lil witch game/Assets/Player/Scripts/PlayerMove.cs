@@ -40,6 +40,7 @@ public class PlayerMove : MonoBehaviour
     float jumpTimer = 0;
     float jumpCooldownTimer;
     public bool IsGrounded;
+
     
     //public KeyCode Restart;
     void Start()
@@ -48,19 +49,23 @@ public class PlayerMove : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         //cam = Camera.main;
         VirtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = 1f;
+        
     }
 
     private void FixedUpdate()
     {
         IsGrounded = Physics.SphereCast(transform.position, groundDistance, Vector3.down, out _, groundDistance, groundLayers);
         if (IsGrounded) {
-            
+            Physics.gravity=new Vector3(0,0,0);
             if(Input.GetKeyDown(KeyCode.Space)){
                 //rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             }
-            vertical = Input.GetAxis("Vertical");
-            horizontal = Input.GetAxis("Horizontal");
         }
+        else {
+            Physics.gravity=new Vector3(0,-200,0);
+        }
+        vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
         rb.velocity = (transform.right * horizontal + transform.forward * vertical) * speed * Time.deltaTime;
     }
 
@@ -70,14 +75,24 @@ public class PlayerMove : MonoBehaviour
         {
             Player.transform.position = new Vector3(0, 1, 0);
         }*/
-
-
-
-        
         horizontalLook = Input.GetAxis("Mouse X");
         verticalLook += Input.GetAxis("Mouse Y") * rotationSpeedVertical;
 
         transform.Rotate((transform.up * horizontalLook) * rotationSpeedHorizontal * Time.deltaTime);
         VirtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = (verticalLook);
+
+        if (vertical<0){
+            print("Moving Backwards");
+        }
+        else if (vertical>0){
+            print("Moving Forwards");
+        }
+        if (horizontal<0){
+            print("Moving Left");
+        }
+        else if (horizontal>0){
+            print("Moving Right");
+        }
+            
     }
 }
