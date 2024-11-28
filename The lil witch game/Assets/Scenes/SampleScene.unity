@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -783,6 +783,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194225}
     - target: {fileID: 8619917409944664437, guid: b4ce9293fb61fd647b163b65da658627, type: 3}
+      propertyPath: conversation
+      value: New Conversation 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619917409944664437, guid: b4ce9293fb61fd647b163b65da658627, type: 3}
       propertyPath: conversationActor
       value: 
       objectReference: {fileID: 8736605716025345784}
@@ -842,6 +846,14 @@ PrefabInstance:
     - target: {fileID: 5802758596713827707, guid: 136dadb466006024a97fb3580e913734, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678662187475289412, guid: 136dadb466006024a97fb3580e913734, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8447919
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678662187475289412, guid: 136dadb466006024a97fb3580e913734, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.17134294
       objectReference: {fileID: 0}
     - target: {fileID: 8678662187475289412, guid: 136dadb466006024a97fb3580e913734, type: 3}
       propertyPath: m_LocalRotation.y
