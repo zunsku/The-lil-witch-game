@@ -159,7 +159,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: -1528447254, guid: 637ad91e066ed2140b154a93528acf3a, type: 3}
+    spritePortrait: {fileID: 402193548, guid: 28f2194a9ebc49148bf7d2bbfc65688e, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 6
@@ -1054,11 +1054,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 1
         type: 5
@@ -1070,15 +1070,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: I don't have all the ingrediants yet!
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -1087,7 +1087,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Variable["BerriesHave"] == false
+      conditionsString: ' '
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -1155,8 +1155,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 288
-        y: 134
+        x: 490.30774
+        y: 145.53845
         width: 160
         height: 30
     - id: 4
@@ -1214,8 +1214,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 288
-        y: 218
+        x: 490.30774
+        y: 229.53845
         width: 160
         height: 30
     - id: 5
@@ -1271,8 +1271,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 288
-        y: 302
+        x: 490.30774
+        y: 313.53845
         width: 160
         height: 30
     - id: 6
@@ -1320,13 +1320,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 288
-        y: 352
+        x: 490.30774
+        y: 363.53845
         width: 160
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 1.2999997
   - id: 4
     fields:
     - title: Title
