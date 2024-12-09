@@ -584,7 +584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000006895302, y: 0}
+  m_AnchoredPosition: {x: 0.0000006895302, y: -0.000010803342}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &11497320
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11465000}
   m_HandleRect: {fileID: 22422120}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1090,7 +1090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -10, y: 167}
+  m_AnchoredPosition: {x: -10, y: 173}
   m_SizeDelta: {x: 192, y: 256}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &22220450
@@ -1630,7 +1630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -911.69995, y: 117}
+  m_AnchoredPosition: {x: -911.69995, y: 123}
   m_SizeDelta: {x: 192, y: 23}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &22236844
@@ -3851,7 +3851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.13690186, y: 11}
+  m_AnchoredPosition: {x: -0.13690186, y: 23}
   m_SizeDelta: {x: -85.0878, y: -150.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22274218

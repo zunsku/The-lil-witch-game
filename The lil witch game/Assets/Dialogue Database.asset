@@ -38,9 +38,9 @@ MonoBehaviour:
   - id: 1
     fields:
     - title: Name
-      value: Player
+      value: Lil Witch
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -56,10 +56,15 @@ MonoBehaviour:
     - title: Display Name
       value: Lil Witch
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     portrait: {fileID: 0}
     spritePortrait: {fileID: 128002501, guid: 231924b5c865933428a5ba8a85b645da, type: 3}
-    alternatePortraits: []
+    alternatePortraits:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     spritePortraits:
     - {fileID: -568224879, guid: 231924b5c865933428a5ba8a85b645da, type: 3}
     - {fileID: 1915303964, guid: 231924b5c865933428a5ba8a85b645da, type: 3}
@@ -69,7 +74,7 @@ MonoBehaviour:
   - id: 2
     fields:
     - title: Name
-      value: Child Duo
+      value: ChildDuo
       type: 0
       typeString: 
     - title: Pictures
@@ -1087,7 +1092,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: ' '
+      conditionsString: Variable["BerriesHave"] == false and (Variable["HerbsHave"]
+        == false) and (Variable["FairyHave"] == false) and (Variable["CloudHave"]
+        == false)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -1095,7 +1102,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 134
+        y: 133.23077
         width: 160
         height: 30
     - id: 2
@@ -1325,7 +1332,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 76.15387, y: 0}
     canvasZoom: 1.2999997
   - id: 4
     fields:
@@ -1975,8 +1982,8 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: (Variable["SnailQuestStarted"] == true) and (Variable["CoinsHave"]
-        == false)
+      conditionsString: (Variable["SnailQuestStarted"] == true) and (Variable["CoinsCollected"]
+        ~= 3)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2148,11 +2155,11 @@ MonoBehaviour:
     - title: Title
       value: CatBearConvo
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Actor
       value: 1
       type: 5
@@ -2279,8 +2286,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "Hi, Bear and Kitty! I\u2019m trying to make a potion, but I need
-          some fruits and berries.\r\nWould you happen to have some for me?"
+        value: "[picc=5]Hi , Bear and Kitty! I\u2019m trying to make a potion, but
+          I need some fruits and berries.\r\nWould you happen to have some for me?"
         type: 0
         typeString: 
       - title: Sequence
@@ -2342,6 +2349,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: EventGuid
+        value: d15e3fcb-e799-4987-adbd-4c2bda88a87d
+        type: 0
+        typeString: 
       conversationID: 5
       isRoot: 0
       isGroup: 0
@@ -2363,7 +2374,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 30
+        x: 28.96907
         y: 120
         width: 160
         height: 30
@@ -4212,8 +4223,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 25.76465, y: 43.764595}
-    canvasZoom: 0.40000045
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.97
   - id: 6
     fields:
     - title: Title

@@ -57,9 +57,9 @@ public class PlayerMove : MonoBehaviour
         IsGrounded = Physics.SphereCast(transform.position, groundDistance, Vector3.down, out _, groundDistance, groundLayers);
         if (IsGrounded) {
             Physics.gravity=new Vector3(0,0,0);
-            if(Input.GetKeyDown(KeyCode.Space)){
+            /*if(Input.GetKeyDown(KeyCode.Space)){
                 //rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-            }
+            }*/
         }
         else {
             Physics.gravity=new Vector3(0,-200,0);
@@ -71,12 +71,14 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        /*if (Input.GetKeyDown(Restart))
-        {
-            Player.transform.position = new Vector3(0, 1, 0);
-        }*/
         horizontalLook = Input.GetAxis("Mouse X");
         verticalLook += Input.GetAxis("Mouse Y") * rotationSpeedVertical;
+        if (verticalLook < -1){
+            verticalLook = -1;
+        }
+        else if (verticalLook < 0.5f){
+            verticalLook = 0.5f;
+        }
 
         transform.Rotate((transform.up * horizontalLook) * rotationSpeedHorizontal * Time.deltaTime);
         VirtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = (verticalLook);
