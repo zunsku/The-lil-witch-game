@@ -52,6 +52,14 @@ public class PlayerMove : MonoBehaviour
         
     }
 
+    public void stopcharacter(){
+        vertical = 0;
+        horizontal = 0;
+        rb.velocity = (transform.right * horizontal + transform.forward * vertical) * speed * Time.deltaTime;
+        print("HALT! YOU'VE VIOLATED THE LAW!");
+        this.enabled = false;
+    }
+
     private void FixedUpdate()
     {
         IsGrounded = Physics.SphereCast(transform.position, groundDistance, Vector3.down, out _, groundDistance, groundLayers);
@@ -97,4 +105,5 @@ public class PlayerMove : MonoBehaviour
         }
             
     }
+
 }
