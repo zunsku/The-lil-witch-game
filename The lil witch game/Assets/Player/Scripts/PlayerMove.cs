@@ -25,21 +25,24 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] public float rotationSpeedVertical;
     [SerializeField] private float horizontalLook;
     [SerializeField] private float verticalLook;
-    
-    [Header("Jump settings")]
+
+    [Header("Animation settings")]
+    [SerializeField] public Animator myAnim;
+/*     [Header("Jump settings")]
     [SerializeField] public float jumpDuration = 0.5f;
     [SerializeField] public float jumpCooldown = 0f;
     [SerializeField] public float gravityMultiplier = 3f;
     [SerializeField] public float jumpForce;
 
     [Header("Dash settings")]
-    public float dashForce;
+    public float dashForce; */
 
     const float ZeroF = 0f;
-    float jumpVelocity;
+    /* float jumpVelocity;
     float jumpTimer = 0;
-    float jumpCooldownTimer;
+    float jumpCooldownTimer; */
     public bool IsGrounded;
+    private string LastMoveDir;
 
     
     //public KeyCode Restart;
@@ -49,12 +52,26 @@ public class PlayerMove : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         //cam = Camera.main;
         VirtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = 1f;
-        
+        myAnim = GetComponentInChildren<Animator>();
     }
 
     public void stopcharacter(){
         vertical = 0;
         horizontal = 0;
+        switch(LastMoveDir){
+            case ("For"):
+                myAnim.Play("GoodIdle");
+                break;
+            case ("Back"):
+                myAnim.Play("GoodIdleBack");
+                break;
+            case ("Left"):
+                myAnim.Play("IdleLeft");
+                break;
+            case ("Right"):
+                myAnim.Play("IdleRight");
+                break;
+        }
         rb.velocity = (transform.right * horizontal + transform.forward * vertical) * speed * Time.deltaTime;
         print("HALT! YOU'VE VIOLATED THE LAW!");
         this.enabled = false;
@@ -93,15 +110,40 @@ public class PlayerMove : MonoBehaviour
 
         if (vertical<0){
             print("Moving Backwards");
+            myAnim.Play("GoodWalkBack");
+            LastMoveDir = "Back";
         }
         else if (vertical>0){
             print("Moving Forwards");
+            myAnim.Play("GoodWalk");
+            LastMoveDir = "For";
         }
-        if (horizontal<0){
+        else if (horizontal<0){
             print("Moving Left");
+            myAnim.Play("GoodWalkLeft");
+            LastMoveDir = "Left";
         }
         else if (horizontal>0){
             print("Moving Right");
+            myAnim.Play("GoodWalkRight");
+            LastMoveDir = "Right";
+        }
+        else if (horizontal == 0 & vertical == 0){
+            print("Idle");
+            switch(LastMoveDir){
+                case ("For"):
+                    myAnim.Play("GoodIdle");
+                    break;
+                case ("Back"):
+                    myAnim.Play("GoodIdleBack");
+                    break;
+                case ("Left"):
+                    myAnim.Play("IdleLeft");
+                    break;
+                case ("Right"):
+                    myAnim.Play("IdleRight");
+                    break;
+            }
         }
             
     }
